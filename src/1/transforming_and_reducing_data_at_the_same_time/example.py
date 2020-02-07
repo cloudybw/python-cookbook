@@ -22,3 +22,6 @@ portfolio = [
 ]
 min_shares = min(s['shares'] for s in portfolio)
 print(min_shares)
+
+min_shares_dict = min(portfolio, key=lambda p: p['shares'])
+print(min_shares_dict)

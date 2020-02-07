@@ -5,6 +5,7 @@ from collections import namedtuple
 Stock = namedtuple('Stock', ['name', 'shares', 'price'])
 
 def compute_cost(records):
+
     total = 0.0
     for rec in records:
         s = Stock(*rec)
@@ -20,3 +21,13 @@ records = [
 
 print(compute_cost(records))
 
+stock_prototype = Stock('',0,None)
+
+def dict_to_stock(s):
+    return stock_prototype._replace(**s)
+
+a = {'name': 'ACME', 'shares': 100, 'price': 123.45}
+b = {'name': 'GOOG'}
+
+print(dict_to_stock(a))
+print(dict_to_stock(b))

@@ -11,6 +11,7 @@ rows = [
 
 from itertools import groupby
 
+# Need sorting first, otherwise groupby would only group together adjacent records
 rows.sort(key=lambda r: r['date'])
 for date, items in groupby(rows, key=lambda r: r['date']):
     print(date)

@@ -15,9 +15,10 @@ if __name__ == '__main__':
         {'x': 2, 'y': 3},
         {'x': 1, 'y': 4},
         {'x': 2, 'y': 3},
-        {'x': 2, 'y': 3},
+        {'x': 2, 'y': 4},
         {'x': 10, 'y': 15}
         ]
     print(a)
     print(list(dedupe(a, key=lambda a: (a['x'],a['y']))))
+    print(list(dedupe(a, key=lambda a: (a['x']))))
 

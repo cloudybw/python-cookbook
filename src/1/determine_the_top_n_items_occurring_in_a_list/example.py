@@ -21,5 +21,9 @@ morewords = ['why','are','you','not','looking','in','my','eyes']
 word_counts.update(morewords)
 print(word_counts.most_common(3))
 
+# Operations between two counter objects 
+more_counts = Counter(morewords)
+print(word_counts + more_counts)
+print(word_counts - more_counts)
 
 
