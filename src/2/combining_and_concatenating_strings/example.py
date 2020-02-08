@@ -26,12 +26,13 @@ def combine(source, maxsize):
         parts.append(part)
         size += len(part)
         if size > maxsize:
-            yield ''.join(parts)
+            # Buffer ends when the total length of text (2+7) exceeds buffer size (3)
+            yield ''.join(parts)+'!' 
             parts = []
             size = 0
     yield ''.join(parts)
 
-for part in combine(sample(), 32768):
+for part in combine(sample(), 3):
     sys.stdout.write(part)
 sys.stdout.write('\n')
 
