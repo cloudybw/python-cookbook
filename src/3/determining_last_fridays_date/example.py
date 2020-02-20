@@ -7,9 +7,14 @@ def get_previous_byday(dayname, start_date=None):
         start_date = datetime.today()
     day_num = start_date.weekday()
     day_num_target = weekdays.index(dayname)
-    days_ago = (7 + day_num - day_num_target) % 7 
+    # cleaner solution compared to the book
+    days_ago = (day_num - day_num_target) % 7 
+    #days_ago = (7 + day_num - day_num_target) % 7 
     if days_ago == 0:
         days_ago = 7
     target_date = start_date - timedelta(days=days_ago)
     return target_date
+
+# Test case
+print(get_previous_byday('Sunday'))
 
