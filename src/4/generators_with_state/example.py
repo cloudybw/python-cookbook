@@ -9,7 +9,7 @@ class linehistory:
         self.history = deque(maxlen=histlen)
 
     def __iter__(self):
-        for lineno, line in enumerate(self.lines,1):
+        for lineno, line in enumerate(self.lines,1): # 1 is the starting index of enumerate
             self.history.append((lineno, line))
             yield line
 

@@ -4,6 +4,8 @@ import gzip
 import bz2
 import re
 
+import itertools
+
 def gen_find(filepat, top):
     '''
     Find all filenames in a directory tree that match a shell wildcard pattern
@@ -49,6 +51,7 @@ if __name__ == '__main__':
     lognames = gen_find('access-log*', 'www')
     files = gen_opener(lognames)
     lines = gen_concatenate(files)
+    #lines = itertools.chain(*files) # alternative method, does not work since file is closed immediately after each iteration (ValueError: I/O operation on closed file.)
     pylines = gen_grep('(?i)python', lines)
     for line in pylines:
         print(line)
