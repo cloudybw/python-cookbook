@@ -10,6 +10,11 @@ with open('sample.txt', 'rt') as f:
     for line in f:
         print(repr(line))
 
+print("Reading a simple text file (Latin-1)")
+with open('sample.txt', 'rt', encoding='latin-1') as f:
+    for line in f:
+        print(repr(line))
+
 # (b) Reading a text file with universal newlines turned off
 print("Reading text file with universal newlines off")
 with open('sample.txt', 'rt', newline='') as f:
